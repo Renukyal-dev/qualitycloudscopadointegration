@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QC Copado Integration</fullName>
+    <types>
+        <members>Run_QualityClouds_Scan_Page_Controller</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Run_QualityClouds_Scan_Page</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>issueLinkToUserStory</members>
+        <members>scanLinkToUserStory</members>
+        <members>updateUserstoryCount</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>QCloudsSaaS__QCIssue__c.Link_to_Issue__c</members>
+        <members>QCloudsSaaS__QCIssue__c.User_Story__c</members>
+        <members>QCloudsSaaS__Scann__c.Link_to_Scan__c</members>
+        <members>QCloudsSaaS__Scann__c.User_Story__c</members>
+        <members>copado__User_Story__c.QC_Issue_Count__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>QualityCloudsLogo</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
+        <members>copado__User_Story__c.Run_QualityClouds_Scan</members>
+        <name>WebLink</name>
+    </types>
+    <version>48.0</version>
+</Package>
