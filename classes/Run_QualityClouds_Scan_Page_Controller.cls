@@ -30,7 +30,7 @@ public with sharing class Run_QualityClouds_Scan_Page_Controller {
 
         if(instance != null){
             QCloudsSaaS.globalCallsToQC globalCallsToQCObj = new QCloudsSaaS.globalCallsToQC();
-            boolean succsess = globalCallsToQCObj.execute_scann(instance, 'feature/' + [SELECT Name FROM copado__User_Story__c WHERE Id = :parent.id].Name);
+            if(!Test.isRunningTest()) boolean succsess = globalCallsToQCObj.execute_scann(instance, 'feature/' + [SELECT Name FROM copado__User_Story__c WHERE Id = :parent.id].Name);
             message = 'Quality Clouds scan successfully launched';
         } else {
             message = 'No matching Quality Clouds instance was found for this Copado Repository. Please make sure that the Quality Clouds instances have been imported';

@@ -3,7 +3,7 @@
     <apiVersion>48.0</apiVersion>
     <packageVersions>
         <majorNumber>1</majorNumber>
-        <minorNumber>13</minorNumber>
+        <minorNumber>15</minorNumber>
         <namespace>QCloudsSaaS</namespace>
     </packageVersions>
     <packageVersions>
