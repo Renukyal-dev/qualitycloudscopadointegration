@@ -25,7 +25,7 @@ trigger issueLinkToUserStory on QCloudsSaaS__QCIssue__c (before insert) {
             }
         }
         if ( ! String.isBlank(idUserStory)){
-            List<QCloudsSaaS__QCIssue__c> isuelist = [SELECT Id, User_Story__c FROM QCloudsSaaS__QCIssue__c WHERE User_Story__c = :idUserStory];
+            List<QCloudsSaaS__QCIssue__c> isuelist = [SELECT Id, User_Story__c FROM QCloudsSaaS__QCIssue__c WHERE User_Story__c = :idUserStory AND QCloudsSaaS__Scan__c != :issue.QCloudsSaaS__Scan__c ];
             for(QCloudsSaaS__QCIssue__c isue : isuelist )
             {
                 isue.User_Story__c = null;
