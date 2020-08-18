@@ -44,7 +44,7 @@ private class TestCopadoIntegrationTriggers {
             upsert repo;
             copado__Deployment_Flow__c pipe = new copado__Deployment_Flow__c(copado__Git_Repository__c = repo.Id);
             upsert pipe;
-            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id);
+            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id, copado__Integration_setting__c = 'Test');
             upsert project;
             copado__User_Story__c userStory = new copado__User_Story__c( copado__Project__c = project.Id);
             upsert userStory;
@@ -72,7 +72,7 @@ private class TestCopadoIntegrationTriggers {
             upsert repo;
             copado__Deployment_Flow__c pipe = new copado__Deployment_Flow__c(copado__Git_Repository__c = repo.Id);
             upsert pipe;
-            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id);
+            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id, copado__Integration_setting__c = 'Test');
             upsert project;
             copado__User_Story__c userStory = new copado__User_Story__c( copado__Project__c = project.Id);
             upsert userStory;
@@ -96,7 +96,7 @@ private class TestCopadoIntegrationTriggers {
             upsert repo;
             copado__Deployment_Flow__c pipe = new copado__Deployment_Flow__c(copado__Git_Repository__c = repo.Id);
             upsert pipe;
-            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id);
+            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id, copado__Integration_setting__c = 'Test');
             upsert project;
             copado__User_Story__c userStory = new copado__User_Story__c( copado__Project__c = project.Id);
             upsert userStory;
