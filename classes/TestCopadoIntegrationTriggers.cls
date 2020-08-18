@@ -35,6 +35,7 @@ private class TestCopadoIntegrationTriggers {
             copadoGlobalAPI.upsertCopadoLicense(runningUser.id, UL);
             
             Copado_Integration_Setting__c cis2 = new Copado_Integration_Setting__c(name = 'VSTS', external_system__c = 'Visual Studio Team Services', Named_Credential__c = 'Test_VSTS');
+            insert cis2;
         }
 
     }
@@ -46,7 +47,7 @@ private class TestCopadoIntegrationTriggers {
             upsert repo;
             copado__Deployment_Flow__c pipe = new copado__Deployment_Flow__c(copado__Git_Repository__c = repo.Id);
             upsert pipe;
-            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id, Copado_Integration_Setting__r = cis2);
+            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id, Copado_Integration_Setting__c = cis2.id);
             upsert project;
             copado__User_Story__c userStory = new copado__User_Story__c( copado__Project__c = project.Id);
             upsert userStory;
@@ -74,7 +75,7 @@ private class TestCopadoIntegrationTriggers {
             upsert repo;
             copado__Deployment_Flow__c pipe = new copado__Deployment_Flow__c(copado__Git_Repository__c = repo.Id);
             upsert pipe;
-            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id, Copado_Integration_Setting__r = cis2);
+            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id, Copado_Integration_Setting__c = cis2.id);
             upsert project;
             copado__User_Story__c userStory = new copado__User_Story__c( copado__Project__c = project.Id);
             upsert userStory;
@@ -98,7 +99,7 @@ private class TestCopadoIntegrationTriggers {
             upsert repo;
             copado__Deployment_Flow__c pipe = new copado__Deployment_Flow__c(copado__Git_Repository__c = repo.Id);
             upsert pipe;
-            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id, Copado_Integration_Setting__r = cis2);
+            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id, Copado_Integration_Setting__c = cis2.id);
             upsert project;
             copado__User_Story__c userStory = new copado__User_Story__c( copado__Project__c = project.Id);
             upsert userStory;
