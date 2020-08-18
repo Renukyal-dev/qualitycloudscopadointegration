@@ -33,9 +33,7 @@ private class TestCopadoIntegrationTriggers {
             UL.isCCMEnabled = true;
             UL.userId = runningUser.id;
             copadoGlobalAPI.upsertCopadoLicense(runningUser.id, UL);
-            
-            Copado_Integration_Setting__c cis2 = new Copado_Integration_Setting__c(name = 'VSTS', external_system__c = 'Visual Studio Team Services', Named_Credential__c = 'Test_VSTS');
-            insert cis2;
+           
         }
 
     }
@@ -43,6 +41,8 @@ private class TestCopadoIntegrationTriggers {
     @isTest(SeeAllData=false) static void TestNewScanPage() {
         setupTestData();
         System.runAs(runningUser) {
+            Copado_Integration_Setting__c cis2 = new Copado_Integration_Setting__c(name = 'VSTS', external_system__c = 'Visual Studio Team Services', Named_Credential__c = 'Test_VSTS');
+            insert cis2;
             copado__Git_Repository__c repo = new copado__Git_Repository__c(copado__URI__c = 'https://github.com/testgit');
             upsert repo;
             copado__Deployment_Flow__c pipe = new copado__Deployment_Flow__c(copado__Git_Repository__c = repo.Id);
@@ -71,11 +71,13 @@ private class TestCopadoIntegrationTriggers {
     @isTest(SeeAllData=false) static void TestScanTriggers() {
         setupTestData();
         System.runAs(runningUser) {
+            Copado_Integration_Setting__c cis3 = new Copado_Integration_Setting__c(name = 'VSTS1', external_system__c = 'Visual Studio Team Services', Named_Credential__c = 'Test_VSTS');
+            insert cis3;
             copado__Git_Repository__c repo = new copado__Git_Repository__c(copado__URI__c = 'https://github.com/testgit');
             upsert repo;
             copado__Deployment_Flow__c pipe = new copado__Deployment_Flow__c(copado__Git_Repository__c = repo.Id);
             upsert pipe;
-            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id, Copado_Integration_Setting__c = cis2.id);
+            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id, Copado_Integration_Setting__c = cis3.id);
             upsert project;
             copado__User_Story__c userStory = new copado__User_Story__c( copado__Project__c = project.Id);
             upsert userStory;
@@ -95,11 +97,13 @@ private class TestCopadoIntegrationTriggers {
     @isTest(SeeAllData=false) static void TestIssueTriggers() {
         setupTestData();
         System.runAs(runningUser) {
+            Copado_Integration_Setting__c cis4 = new Copado_Integration_Setting__c(name = 'VSTS2', external_system__c = 'Visual Studio Team Services', Named_Credential__c = 'Test_VSTS');
+            insert cis4;
             copado__Git_Repository__c repo = new copado__Git_Repository__c(copado__URI__c = 'https://github.com/testgit');
             upsert repo;
             copado__Deployment_Flow__c pipe = new copado__Deployment_Flow__c(copado__Git_Repository__c = repo.Id);
             upsert pipe;
-            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id, Copado_Integration_Setting__c = cis2.id);
+            copado__Project__c project = new copado__Project__c(copado__Deployment_Flow__c = pipe.Id, Copado_Integration_Setting__c = cis4.id);
             upsert project;
             copado__User_Story__c userStory = new copado__User_Story__c( copado__Project__c = project.Id);
             upsert userStory;
